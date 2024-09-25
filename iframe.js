@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // If email is present and iframe exists
                 console.log("Email found: " + email);
                  iframe.contentWindow.postMessage(email);
+                iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`
                 clearInterval(checkEmailInterval); // Stop checking once the email is found and iframe is ready
             } else {
                 console.log("No email found, using default URL.");
