@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
     console.log("Script Started...");
-
+     var divElement = document.getElementById("swell-customer-identification");
+     var email = divElement ? divElement.getAttribute("data-email") : null;
+     const iframe = document.getElementById('iframeContactUsOOKAUAE');
     var checkEmailInterval = setInterval(function () {
-        var divElement = document.getElementById("swell-customer-identification");
-        var email = divElement ? divElement.getAttribute("data-email") : null;
-        const iframe = document.getElementById('iframeContactUsOOKAUAE');
+       
 
         console.log("Checking iframe and email...");
 
