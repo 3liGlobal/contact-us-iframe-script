@@ -5,11 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var email;
     var checkEmailInterval = setInterval(function () {
     var divElement = document.getElementById("swell-customer-identification");
-     console.log(divElement);
+     //console.log(divElement);
      email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
-     
-        console.log("Checking iframe and email...");
-
         if (!iframe) {
             console.log("Iframe not found yet...");
         } else {
