@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
     console.log("Script Started...");
-     var divElement = document.getElementById("swell-customer-identification");
-     console.log(divElement);
-     var email = divElement ? divElement.getAttribute("data-email") : null;
-     const iframe = document.getElementById('iframeContactUsOOKAUAE');
+     var email;
      var checkEmailInterval = setInterval(function () {
        
-
+        var divElement = document.getElementById("swell-customer-identification");
+     console.log(divElement);
+     email = divElement ? divElement.getAttribute("data-email") : null;
+     const iframe = document.getElementById('iframeContactUsOOKAUAE');
         console.log("Checking iframe and email...");
 
         if (!iframe) {
