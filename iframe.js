@@ -19,6 +19,9 @@
                  iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE`;
                  clearInterval(checkEmailInterval);
             }
+         iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE`;
+                 clearInterval(checkEmailInterval);
+         
         }
     }, 500); // Check every half second
 });
