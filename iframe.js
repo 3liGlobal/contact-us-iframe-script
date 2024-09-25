@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded and parsed");
     console.log("Script Started...");
 
     var checkEmailInterval = setInterval(function () {
