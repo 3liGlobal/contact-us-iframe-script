@@ -24,4 +24,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }, 500); // Check every half second
+    iframe.contentWindow.postMessage(email);
 });
