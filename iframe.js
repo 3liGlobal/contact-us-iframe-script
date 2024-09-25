@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded and parsed");
     console.log("Script Started...");
-     var email;
-     var checkEmailInterval = setInterval(function () {
-       
-        var divElement = document.getElementById("swell-customer-identification");
+    const iframe = document.getElementById('iframeContactUsOOKAUAE');
+    iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE`;
+    var email;
+    var checkEmailInterval = setInterval(function () {
+    var divElement = document.getElementById("swell-customer-identification");
      console.log(divElement);
-     email = divElement ? divElement.getAttribute("data-email") : null;
-     const iframe = document.getElementById('iframeContactUsOOKAUAE');
+     email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
+     
         console.log("Checking iframe and email...");
 
         if (!iframe) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (email) { 
                 // If email is present and iframe exists
                 console.log("Email found: " + email);
-                iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
+                 iframe.contentWindow.postMessage(email);
                 clearInterval(checkEmailInterval); // Stop checking once the email is found and iframe is ready
             } else {
                 console.log("No email found, using default URL.");
@@ -25,5 +25,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }, 500); // Check every half second
-    iframe.contentWindow.postMessage(email);
+   
 });
