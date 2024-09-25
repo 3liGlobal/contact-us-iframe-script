@@ -14,6 +14,8 @@
                 console.log(email);
                 iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
                 clearInterval(checkEmailInterval); // Stop checking once the email is found and iframe is ready
+            }else{
+                 iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE`;
             }
         }
     }, 500); // Check every half second
