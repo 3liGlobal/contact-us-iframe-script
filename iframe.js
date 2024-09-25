@@ -1,4 +1,4 @@
-
+document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
     console.log("Script Started...");
 
@@ -25,3 +25,4 @@
             }
         }
     }, 500); // Check every half second
+});
