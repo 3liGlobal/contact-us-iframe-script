@@ -1,55 +1,39 @@
-// Function to set up the iframe based on the current language
-function setupIframe() {
-    const language = document.documentElement.lang; // Get the current language from the HTML tag
-    const divElement = document.getElementById("swell-customer-identification");
-    const email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
+function initializeEnglishIframe() {
+    const iframe = document.getElementById('iframeContactUsOOKAUAE');
+    if (!iframe) return;
 
-    let iframeId, defaultUrl;
+    console.log("Script Started...");
+    iframe.src = 'https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE';
+    let email;
 
-    if (language === 'ar') {
-        // Arabic version
-        iframeId = 'iframeContactUsOOKAUAEArabic';
-        defaultUrl = 'https://3liglobal.github.io/Arabic_Contact_Us-Form_OOKA_UAE';
-    } else {
-        // English version
-        iframeId = 'iframeContactUsOOKAUAE';
-        defaultUrl = 'https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE';
-    }
+    const checkEmailInterval = setInterval(function () {
+        const divElement = document.getElementById("swell-customer-identification");
+        email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
 
-    console.log("Setting up iframe for " + iframeId + "...");
-    
-    const iframe = document.getElementById(iframeId);
-    iframe.src = defaultUrl;
-
-    var checkEmailInterval = setInterval(function () {
-        if (!iframe) {
-            console.log("Iframe not found yet...");
+        if (email) {
+            console.log("Email found: " + email);
+            iframe.contentWindow.postMessage(email, "*");
+            iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
+            clearInterval(checkEmailInterval);
         } else {
-            if (email) { 
-                // If email is present and iframe exists
-                console.log("Email found: " + email);
-                iframe.contentWindow.postMessage(email);
-                iframe.src = `${defaultUrl}?email=${encodeURIComponent(email)}`;
-                clearInterval(checkEmailInterval); // Stop checking once the email is found and iframe is ready
-            } else {
-                console.log("No email found, using default URL.");
-            }
+            console.log("No email found, using default URL.");
         }
-    }, 500); // Check every half second
+    }, 500);
 }
 
-// Initial setup
-document.addEventListener("DOMContentLoaded", setupIframe);
+// Run on initial load
+document.addEventListener("DOMContentLoaded", initializeEnglishIframe);
 
-// Monitor for changes in the language
-const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.attributeName === 'lang') {
-            console.log("Language changed, reloading iframe...");
-            setupIframe(); // Reload the iframe on language change
+// MutationObserver to detect changes when the button is clicked
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+            const newLanguageButton = document.querySelector('.language-switcher_button');
+            if (newLanguageButton) {
+                newLanguageButton.addEventListener('click', initializeEnglishIframe);
+            }
         }
     });
 });
 
-// Start observing changes to the <html> element's attributes
-observer.observe(document.documentElement, { attributes: true });
+observer.observe(document.body, { childList: true, subtree: true });
