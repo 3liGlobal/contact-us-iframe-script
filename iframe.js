@@ -51,7 +51,9 @@ document.addEventListener("DOMContentLoaded", initializeArabicIframe );
                else{
                    document.addEventListener("DOMContentLoaded", initializeEnglishIframe);
                }
-var targetElement =  document.querySelector('.language-switcher_button');
+
+document.addEventListener("DOMContentLoaded", function() {
+  var targetElement =  document.querySelector('.language-switcher_button');
 
 targetElement.addEventListener("click", function() {
     console.log("Clicked english")
@@ -61,7 +63,9 @@ document.addEventListener("DOMContentLoaded", initializeArabicIframe );
                else{
                    document.addEventListener("DOMContentLoaded", initializeEnglishIframe);
                }
-    });
+    });  
+}
+
               
 
 
