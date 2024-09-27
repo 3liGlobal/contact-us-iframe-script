@@ -12,7 +12,7 @@ function initializeEnglishIframe() {
 
         if (email) {
             console.log("Email found: " + email);
-            iframe.contentWindow.postMessage(email, "*");
+            // iframe.contentWindow.postMessage(email, "*");
             iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
             clearInterval(checkEmailInterval);
         } else {
