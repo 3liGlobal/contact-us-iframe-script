@@ -30,6 +30,7 @@ const observer = new MutationObserver((mutations) => {
         if (mutation.type === "childList") {
             const newLanguageButton = document.querySelector('.language-switcher_button');
             if (newLanguageButton) {
+                window.location.reload();
                 newLanguageButton.addEventListener('click', initializeEnglishIframe);
             }
         }
