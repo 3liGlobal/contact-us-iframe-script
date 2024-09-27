@@ -47,3 +47,4 @@ document.addEventListener("DOMContentLoaded", function () {
         initializeArabicIframe();
     }
 });
+console.log("English Script Started");
