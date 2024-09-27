@@ -44,14 +44,9 @@ function initializeArabicIframe() {
 }
  
 // Run on initial load
-var language =  document.querySelector('.language-switcher_button').children[0].innerHTML;
-                if(language=='English'){
+
                      newLanguageButton.addEventListener('click', initializeEnglishIframe);
-                }
-                //window.location.reload();
-               else{ 
-                   newLanguageButton.addEventListener('click', initializeArabicIframe);
-               }
+
 
 // MutationObserver to detect changes when the button is clicked
 const observer = new MutationObserver((mutations) => {
