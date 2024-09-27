@@ -1,6 +1,5 @@
-
 // Function to reload the page and switch to Arabic
-function switchToArabic() {
+function switchToEnglish() {
     // Reload the page
     window.location.reload();
 }
@@ -11,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (languageSwitcherButton) {
         languageSwitcherButton.addEventListener('click', function () {
-            switchToArabic();
+            switchToEnglish();
         });
     }
 });
 
 // Initialize Arabic iframe script
 function initializeArabicIframe() {
-    const iframe = document.getElementById('iframeContactUsOOKAUAE');
+    const iframe = document.getElementById('iframeContactUsOOKAUAEArabic');
     if (!iframe) return;
 
     console.log("Arabic Script Loaded");
@@ -42,13 +41,9 @@ function initializeArabicIframe() {
 
 // Run on initial load
 document.addEventListener("DOMContentLoaded", function () {
-    // Check the document's language attribute
-    const lang = document.documentElement.lang;
-
-    if (lang === "ar") {
+    if (window.location.href.includes('/en/content/contact-us')) {
         initializeArabicIframe();
-    } else {
-        initializeEnglishIframe();
+    } else if (document.getElementById('iframeContactUsOOKAUAEArabic')) {
+        initializeArabicIframe();
     }
 });
-
