@@ -42,9 +42,9 @@ function initializeEnglishIframe() {
 // Run on initial load
 document.addEventListener("DOMContentLoaded", function () {
     if (window.location.href.includes('/en/content/contact-us')) {
-        initializeArabicIframe();
+        initializeEnglishIframe();
     } else if (document.getElementById('iframeContactUsOOKAUAEArabic')) {
-        initializeArabicIframe();
+        initializeEnglishIframe();
     }
 });
 console.log("English Script Started");
