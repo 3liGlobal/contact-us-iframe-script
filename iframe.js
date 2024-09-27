@@ -45,12 +45,23 @@ function initializeArabicIframe() {
  
 // Run on initial load
 var language =  document.querySelector('.language-switcher_button').children[0].innerHTML;
-                if(language=='English'){ 
+ if(language=='English'){ 
 document.addEventListener("DOMContentLoaded", initializeArabicIframe );
                 }        
                else{
                    document.addEventListener("DOMContentLoaded", initializeEnglishIframe);
                }
+var targetElement =  document.querySelector('.language-switcher_button');
+
+targetElement.addEventListener("click", function() {
+      if(language=='English'){ 
+document.addEventListener("DOMContentLoaded", initializeArabicIframe );
+                }        
+               else{
+                   document.addEventListener("DOMContentLoaded", initializeEnglishIframe);
+               }
+    });
+              
 
 
 // MutationObserver to detect changes when the button is clicked
