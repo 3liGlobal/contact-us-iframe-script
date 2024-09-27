@@ -42,10 +42,13 @@ function initializeArabicIframe() {
 
 // Run on initial load
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.href.includes('/ar/content/contact-us')) {
+    // Check the document's language attribute
+    const lang = document.documentElement.lang;
+
+    if (lang === "ar") {
         initializeArabicIframe();
-    } else if (document.getElementById('iframeContactUsOOKAUAEArabic')) {
-        initializeArabicIframe();
+    } else {
+        initializeEnglishIframe();
     }
 });
 
