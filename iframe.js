@@ -16,7 +16,7 @@ function initializeEnglishIframe() {
             iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
             clearInterval(checkEmailInterval);
         } else {
-            console.log("No email found, using default URL.");
+            console.log("No email found English, using default URL.");
         }
     }, 500);
 }
@@ -38,7 +38,7 @@ function initializeArabicIframe() {
             iframe.src = `https://3liglobal.github.io/Arabic_Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
             clearInterval(checkEmailInterval);
         } else {
-            console.log("No email found, using default URL.");
+            console.log("No email found arabic, using default URL.");
         }
     }, 500);
 }
