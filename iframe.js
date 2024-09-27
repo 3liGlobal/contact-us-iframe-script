@@ -1,8 +1,27 @@
-function initializeEnglishIframe() {
+
+// Function to reload the page and switch to Arabic
+function switchToArabic() {
+    // Reload the page
+    window.location.reload();
+}
+
+// Attach click event listener to the language switcher button
+document.addEventListener("DOMContentLoaded", function () {
+    const languageSwitcherButton = document.querySelector('.language-switcher_button');
+
+    if (languageSwitcherButton) {
+        languageSwitcherButton.addEventListener('click', function () {
+            switchToArabic();
+        });
+    }
+});
+
+// Initialize Arabic iframe script
+function initializeArabicIframe() {
     const iframe = document.getElementById('iframeContactUsOOKAUAE');
     if (!iframe) return;
 
-    console.log("Script Started...");
+    console.log("Arabic Script Loaded");
     iframe.src = 'https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE';
     let email;
 
@@ -12,7 +31,7 @@ function initializeEnglishIframe() {
 
         if (email) {
             console.log("Email found: " + email);
-            // iframe.contentWindow.postMessage(email, "*");
+            iframe.contentWindow.postMessage(email, "*");
             iframe.src = `https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
             clearInterval(checkEmailInterval);
         } else {
@@ -22,19 +41,11 @@ function initializeEnglishIframe() {
 }
 
 // Run on initial load
-document.addEventListener("DOMContentLoaded", initializeEnglishIframe);
-
-// MutationObserver to detect changes when the button is clicked
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.type === "childList") {
-            const newLanguageButton = document.querySelector('.language-switcher_button');
-            if (newLanguageButton) {
-                //window.location.reload();
-                newLanguageButton.addEventListener('click', initializeEnglishIframe);
-            }
-        }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.href.includes('/ar/content/contact-us')) {
+        initializeArabicIframe();
+    } else if (document.getElementById('iframeContactUsOOKAUAEArabic')) {
+        initializeArabicIframe();
+    }
 });
 
-observer.observe(document.body, { childList: true, subtree: true });
