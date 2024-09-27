@@ -28,8 +28,5 @@ document.addEventListener("DOMContentLoaded", function () {
     setupIframe('iframeContactUsOOKAUAE', 'https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE');
 });
 
-// Second iframe script
-document.addEventListener("DOMContentLoaded", function () {
-    setupIframe('iframeContactUsOOKAUAEArabic', 'https://3liglobal.github.io/Arabic_Contact_Us-Form_OOKA_UAE');
-});
+
 
