@@ -1,4 +1,4 @@
-Console.log("This is English Script");
+console.log("This is English Script");
 
 
 function initializeEnglishIframe() {
