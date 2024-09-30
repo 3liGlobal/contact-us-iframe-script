@@ -22,6 +22,23 @@ function initializeEnglishIframe() {
             // console.log("No email found English, using default URL.");
         }
     }, 500);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var targetElement = document.querySelector('.language-switcher_button');
+        targetElement.addEventListener("click", function () {
+            var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
+            console.log("Clicked " + language)
+            setTimeout((language) => {
+                console.log("Run")
+                if (language != 'English') {
+                    initializeArabicIframe();
+                }
+                else {
+                    initializeEnglishIframe();
+                }
+            }, 5000);
+        });
+    });
 }
 function initializeArabicIframe() {
     const iframe = document.getElementById('iframeContactUsOOKAUAEArabic');
@@ -45,6 +62,26 @@ function initializeArabicIframe() {
             console.log("No email found arabic, using default URL.");
         }
     }, 500);
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var targetElement = document.querySelector('.language-switcher_button');
+        targetElement.addEventListener("click", function () {
+            var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
+            console.log("Clicked " + language)
+            setTimeout((language) => {
+                console.log("Run")
+                if (language != 'English') {
+                    initializeArabicIframe();
+                }
+                else {
+                    initializeEnglishIframe();
+                }
+            }, 5000);
+        });
+    });
+
 }
 
 // Run on initial load
@@ -59,10 +96,8 @@ else {
 
 document.addEventListener("DOMContentLoaded", function () {
     var targetElement = document.querySelector('.language-switcher_button');
-
     targetElement.addEventListener("click", function () {
         var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-
         console.log("Clicked " + language)
         setTimeout((language) => {
             console.log("Run")
@@ -73,12 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 initializeEnglishIframe();
             }
         }, 5000);
-        if (language != 'English') {
-            initializeArabicIframe();
-        }
-        else {
-            initializeEnglishIframe();
-        }
     });
 });
 
