@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
         
         console.log("Clicked "+ language)
         if (language != 'English') {
-            document.addEventListener("DOMContentLoaded", initializeArabicIframe());
+            initializeArabicIframe();
         }
         else {
-           document.addEventListener("DOMContentLoaded", initializeEnglishIframe());
+            initializeEnglishIframe();
         }
     });
 });
