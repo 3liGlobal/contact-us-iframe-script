@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     targetElement.addEventListener("click", function () {
         var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-        console.log(language);
-        console.log("Clicked english")
+        
+        console.log("Clicked "+ language)
         if (language == 'English') {
             initializeArabicIframe()
         }
