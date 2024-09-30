@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-MutationObserver to detect changes when the button is clicked
+//MutationObserver to detect changes when the button is clicked
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.type === "childList") {
