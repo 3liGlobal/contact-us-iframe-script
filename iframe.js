@@ -25,6 +25,7 @@ function initializeEnglishIframe() {
 }
 function initializeArabicIframe() {
     const iframe = document.getElementById('iframeContactUsOOKAUAEArabic');
+    console.log(iframe);
     if (!iframe) return;
 
     console.log("Arabic frame Initiliazzed...");
