@@ -22,23 +22,6 @@ function initializeEnglishIframe() {
             // console.log("No email found English, using default URL.");
         }
     }, 500);
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var targetElement = document.querySelector('.language-switcher_button');
-        targetElement.addEventListener("click", function () {
-            var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-            console.log("Clicked " + language)
-            setTimeout((language) => {
-                console.log("Run")
-                if (language != 'English') {
-                    initializeArabicIframe();
-                }
-                else {
-                    initializeEnglishIframe();
-                }
-            }, 5000);
-        });
-    });
 }
 function initializeArabicIframe() {
     const iframe = document.getElementById('iframeContactUsOOKAUAEArabic');
@@ -62,26 +45,6 @@ function initializeArabicIframe() {
             console.log("No email found arabic, using default URL.");
         }
     }, 500);
-
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var targetElement = document.querySelector('.language-switcher_button');
-        targetElement.addEventListener("click", function () {
-            var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-            console.log("Clicked " + language)
-            setTimeout((language) => {
-                console.log("Run")
-                if (language != 'English') {
-                    initializeArabicIframe();
-                }
-                else {
-                    initializeEnglishIframe();
-                }
-            }, 5000);
-        });
-    });
-
 }
 
 // Run on initial load
@@ -114,23 +77,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// MutationObserver to detect changes when the button is clicked
-// const observer = new MutationObserver((mutations) => {
-//     mutations.forEach((mutation) => {
-//         if (mutation.type === "childList") {
-//             const newLanguageButton = document.querySelector('.language-switcher_button');
-//             if (newLanguageButton) {
-//                 var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-//                 if (language == 'English') {
-//                     newLanguageButton.addEventListener('click', initializeEnglishIframe);
-//                 }
-//                 //window.location.reload();
-//                 else {
-//                     newLanguageButton.addEventListener('click', initializeArabicIframe);
-//                 }
-//             }
-//         }
-//     });
-// });
+MutationObserver to detect changes when the button is clicked
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+            const newLanguageButton = document.querySelector('.language-switcher_button');
+            if (newLanguageButton) {
+                var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
+                setTimeout((language) => {
+                    console.log("Run")
+                    if (language != 'English') {
+                        initializeArabicIframe();
+                    }
+                    else {
+                        initializeEnglishIframe();
+                    }
+                }, 5000);
+            }
+        }
+    });
+});
 
-// observer.observe(document.body, { childList: true, subtree: true });
+observer.observe(document.body, { childList: true, subtree: true });
