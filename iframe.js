@@ -64,6 +64,15 @@ document.addEventListener("DOMContentLoaded", function () {
         var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
 
         console.log("Clicked " + language)
+        setTimeout((language) => {
+            console.log("Run")
+            if (language != 'English') {
+                initializeArabicIframe();
+            }
+            else {
+                initializeEnglishIframe();
+            }
+        }, 5000);
         if (language != 'English') {
             initializeArabicIframe();
         }
