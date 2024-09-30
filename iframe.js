@@ -78,21 +78,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //MutationObserver to detect changes when the button is clicked
+MutationObserver to detect changes when the button is clicked
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.type === "childList") {
             const newLanguageButton = document.querySelector('.language-switcher_button');
             if (newLanguageButton) {
                 var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-                setTimeout((language) => {
-                    console.log("Run")
-                    if (language != 'English') {
-                        initializeArabicIframe();
-                    }
-                    else {
-                        initializeEnglishIframe();
-                    }
-                }, 5000);
+                if (language == 'English') {
+                    newLanguageButton.addEventListener('click', initializeEnglishIframe);
+                }
+                //window.location.reload();
+                else {
+                    newLanguageButton.addEventListener('click', initializeArabicIframe);
+                }
             }
         }
     });
