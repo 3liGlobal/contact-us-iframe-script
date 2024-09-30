@@ -31,7 +31,7 @@ function initializeArabicIframe() {
     iframe.src = 'https://3liglobal.github.io/Arabic_Contact_Us-Form_OOKA_UAE';
     let email;
 
-    const checkEmailInterval = setInterval(function () {
+    const checkEmailInterval2 = setInterval(function () {
         const divElement = document.getElementById("swell-customer-identification");
         email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
 
@@ -39,7 +39,7 @@ function initializeArabicIframe() {
             console.log("Email found: " + email);
             //iframe.contentWindow.postMessage(email, "*");
             iframe.src = `https://3liglobal.github.io/Arabic_Contact_Us-Form_OOKA_UAE?email=${encodeURIComponent(email)}`;
-            clearInterval(checkEmailInterval);
+            clearInterval(checkEmailInterval2);
         } else {
             console.log("No email found arabic, using default URL.");
         }
