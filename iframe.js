@@ -24,7 +24,7 @@ function initializeEnglishIframe() {
     }, 500);
 }
 function initializeArabicIframe() {
-    const iframe = document.getElementById('iframeContactUsOOKAUAEArabic');
+    const iframe = document.getElementById('iframeContactUsOOKAUAE');
     if (!iframe) return;
 
     console.log("Arabic frame Initiliazzed...");
@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     targetElement.addEventListener("click", function () {
         var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
-        
-        console.log("Clicked "+ language)
+
+        console.log("Clicked " + language)
         if (language != 'English') {
             initializeArabicIframe();
         }
