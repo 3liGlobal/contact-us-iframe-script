@@ -1,14 +1,52 @@
+appendLoader();
 console.log("This is English Script");
+function appendLoader() {
+    const existingLoader = document.getElementById('iframe-loader');
+    if (existingLoader) return; // If loader already exists, don't create another one
 
+    const loaderDiv = document.createElement('div');
+    loaderDiv.id = 'iframe-loader';
+    loaderDiv.style.display = 'none'; // Hidden by default
+    loaderDiv.style.textAlign = 'center';
+    loaderDiv.style.position = 'fixed';
+    loaderDiv.style.top = '50%';
+    loaderDiv.style.left = '50%';
+    loaderDiv.style.transform = 'translate(-50%, -50%)';
+    loaderDiv.style.zIndex = '9999'; // Ensure it appears above other elements
+
+    // Set the loader's inner HTML to include the spinner image
+    loaderDiv.innerHTML = '<img src="https://3liglobal.github.io/contact-us-iframe-script/Spinner.svg" alt="Loading...">';
+
+    // Append the loader to the body or any other container
+    document.body.appendChild(loaderDiv);
+}
+
+function showLoader() {
+    const loader = document.getElementById('iframe-loader');
+    if (loader) {
+        loader.style.display = 'block'; // Show the loader
+    }
+}
+
+function hideLoader() {
+    const loader = document.getElementById('iframe-loader');
+    if (loader) {
+        loader.style.display = 'none'; // Hide the loader
+    }
+}
 
 function initializeEnglishIframe() {
     const iframe = document.getElementById('iframeContactUsOOKAUAE');
     if (!iframe) return;
 
     console.log("English frame Initiliazzed...");
+    showLoader();
     iframe.src = 'https://3liglobal.github.io/Contact_Us-Form_OOKA_UAE';
     let email;
-
+    iframe.onload = () => {
+        hideLoader();
+        console.log("Iframe has loaded.");
+    };
     const checkEmailInterval = setInterval(function () {
         const divElement = document.getElementById("swell-customer-identification");
         email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
@@ -27,11 +65,15 @@ function initializeArabicIframe() {
     const iframe = document.getElementById('iframeContactUsOOKAUAEArabic');
     console.log(iframe);
     if (!iframe) return;
+    showLoader();
 
     console.log("Arabic frame Initiliazzed...");
     iframe.src = 'https://3liglobal.github.io/Arabic_Contact_Us-Form_OOKA_UAE';
     let email;
-
+    iframe.onload = () => {
+        hideLoader();
+        console.log("Iframe has loaded.");
+    };
     const checkEmailInterval2 = setInterval(function () {
         const divElement = document.getElementById("swell-customer-identification");
         email = divElement.hasAttribute("data-email") ? divElement.getAttribute("data-email") : null;
