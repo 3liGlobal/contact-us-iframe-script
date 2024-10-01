@@ -9,8 +9,8 @@ function appendLoader() {
     loaderDiv.style.display = 'none'; // Hidden by default
     loaderDiv.style.textAlign = 'center';
     loaderDiv.style.position = 'fixed';
-    loaderDiv.style.top = '50%';
-    loaderDiv.style.left = '50%';
+    loaderDiv.style.top = '70%';
+    loaderDiv.style.left = '65%';
     loaderDiv.style.transform = 'translate(-50%, -50%)';
     loaderDiv.style.zIndex = '9999'; // Ensure it appears above other elements
 
