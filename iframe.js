@@ -102,6 +102,7 @@ else {
 document.addEventListener("DOMContentLoaded", function () {
     var targetElement = document.querySelector('.language-switcher_button');
     targetElement.addEventListener("click", function () {
+        showLoader();
         var language = document.querySelector('.language-switcher_button').children[0].innerHTML;
         console.log("Clicked " + language)
         setTimeout((language) => {
