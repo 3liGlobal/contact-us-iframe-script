@@ -15,7 +15,7 @@ function appendLoader() {
     loaderDiv.style.zIndex = '9999'; // Ensure it appears above other elements
 
     // Set the loader's inner HTML to include the spinner image
-    loaderDiv.innerHTML = '<img src="https://3liglobal.github.io/contact-us-iframe-script/Spinner.svg" alt="Loading...">';
+    loaderDiv.innerHTML = '<img src="https://3liglobal.github.io/contact-us-iframe-script/spinner.gif" alt="Loading...">';
 
     // Append the loader to the body or any other container
     document.body.appendChild(loaderDiv);
